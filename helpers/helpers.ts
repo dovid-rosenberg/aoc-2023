@@ -1,11 +1,11 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
-export async function parseInput({rootDir, fileName = 'input.txt',testQuantity}){
+export async function parseInput({rootDir, fileName = 'input.txt',subsetLength}){
     const rawData = await  fs.readFile(path.join(rootDir, fileName), { encoding: 'utf8' })
     let array = rawData.split("\n")
-    if(testQuantity){
-        array = array.splice(0,testQuantity)
+    if(subsetLength){
+        array = array.splice(0,subsetLength)
     }
     return array
 }
